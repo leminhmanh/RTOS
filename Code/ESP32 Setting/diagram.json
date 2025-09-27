@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "DuyTan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "chip-mq2", "id": "chip1", "top": 58.62, "left": 571.2, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp1", "top": -52.9, "left": 273.4, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 131.2,
+      "left": 389.6,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -143.7,
+      "left": 474.6,
+      "attrs": { "temperature": "59.6" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -112.8,
+      "left": 395.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 192,
+      "left": 220.8,
+      "attrs": { "text": "RTOS - GROUP 7\nLê Trần Duy Tân\nMai Văn Thành" }
+    }
+  ],
+  "connections": [
+    [ "chip1:GND", "esp1:GND.1", "black", [ "v9.6", "h-239.7" ] ],
+    [ "lcd1:VCC", "esp1:VIN", "red", [ "h-96", "v0.1", "h-19.2" ] ],
+    [ "lcd1:GND", "esp1:GND.1", "black", [ "h-28.8", "v-67.1" ] ],
+    [ "lcd1:SDA", "esp1:D21", "green", [ "h-38.4", "v-172.2" ] ],
+    [ "lcd1:SCL", "esp1:D22", "green", [ "h-19.2", "v-210.6" ] ],
+    [ "chip1:AO", "esp1:D4", "green", [ "v-28.8", "h-239.7" ] ],
+    [ "chip1:VCC", "esp1:3V3", "red", [ "v38.4", "h-239.7" ] ],
+    [ "dht1:VCC", "esp1:3V3", "red", [ "v0" ] ],
+    [ "esp1:D15", "dht1:SDA", "green", [ "h0" ] ],
+    [ "dht1:GND", "esp1:GND.1", "black", [ "v0" ] ],
+    [ "bz1:2", "esp1:D2", "green", [ "v0" ] ],
+    [ "bz1:1", "esp1:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
